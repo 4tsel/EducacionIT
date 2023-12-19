@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Laboratorio 5">
+	<test name="Cross Browser using Data Provider Test - CHROME">
+		<parameter name="browser" value="Chrome" />
+		<classes>
+			<class name="tests.Laboratorio5_E1">
+				<methods>
+					<include name="testValidLogin" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Cross Browser using Data Provider Test - FIREFOX">
+		<parameter name="browser" value="Firefox" />
+		<classes>
+			<class name="tests.Laboratorio5_E1">
+				<methods>
+					<include name="testInvalidLogin" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="File Upload Test - CHROME">
+		<parameter name="browser" value="Chrome" />
+		<classes>
+			<class name="tests.Laboratorio5_E2">
+				<methods>
+					<include name="testFileUpload" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Alert Manipulation Test - FIREFOX">
+		<parameter name="browser" value="Firefox" />
+		<parameter name="URL" value="https://demoqa.com/alerts" />
+		<classes>
+			<class name="tests.Laboratorio5_E3">
+				<methods>
+					<include name="testAlertManipulation" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Table Manipulation Test - CHROME">
+		<parameter name="browser" value="Chrome" />
+		<parameter name="URL" value="https://demo.guru99.com/test/table.html" />
+		<classes>
+			<class name="tests.Laboratorio5_E3">
+				<methods>
+					<include name="testTableManipulation" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Laboratorio3">
+  <test name="Register">
+    <classes>
+      <class name="EducacionIT.Laboratorio3_Ejercicio1"/>
+    </classes>
+  </test> <!-- Register -->
+</suite> <!-- Laboratorio3 -->

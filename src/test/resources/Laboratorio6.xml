@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Laboratorio 6">
+	<test name="Desired Capabilities Test">
+		<parameter name="browser" value="Chrome" />
+        <parameter name="URL" value="http://www.automationpractice.pl/index.php" />
+		<classes>
+			<class name="tests.Laboratorio6_E1">
+				<methods>
+					<include name="testUseSearchBar" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
