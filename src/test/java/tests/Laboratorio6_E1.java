@@ -24,7 +24,7 @@ public class Laboratorio6_E1 {
 
 	WebDriver driver;
 	String CHROME_PATH = "..\\EducacionIT\\Drivers\\chromedriver.exe";
-	String GECKO_PATH = "..\\EducacionIT\\Drivers\\geckodriver.exe";
+	String GECKO_PATH = "./EducacionIT/Drivers/geckodriver.exe";
 	String EDGE_PATH = "..\\EducacionIT\\Drivers\\msedgedriver.exe";
 	
 	String startTime = "Hora de inicio: ";
