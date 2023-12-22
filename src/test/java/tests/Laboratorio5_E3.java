@@ -24,19 +24,24 @@ import utils.Utils;
 public class Laboratorio5_E3 {
 
 	WebDriver driver;
+	String projectPath = System.getProperty("user.dir");
 	String CHROME_PATH = "..\\EducacionIT\\Drivers\\chromedriver.exe";
-	String GECKO_PATH = "../../../Drivers/geckodriver.exe";
+	String GECKO_PATH = projectPath + "\\Drivers\\geckodriver.exe";
 	String EDGE_PATH = "..\\EducacionIT\\Drivers\\msedgedriver.exe";
 	
 	String startTime = "Hora de inicio: ";
 	String endTime = "Hora de fin: ";
 
+	
+	
 	@BeforeSuite(description = "Terminar Instancias Abiertas de Chrome y Firefox")
 	public void cleanUpScenario() {
 
 		startTime += Utils.getTimestamp("dd/MM/yyyy - HH:mm:ss");
 		
 		Utils.cleanUpScenario();
+		
+		System.out.println("Project Path: " + projectPath);
 	}
 
 	@BeforeClass(description = "Borrar Cookies, Ingresar y Maximizar")
