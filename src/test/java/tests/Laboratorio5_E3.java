@@ -25,9 +25,9 @@ public class Laboratorio5_E3 {
 
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
-	String CHROME_PATH = "..\\EducacionIT\\Drivers\\chromedriver.exe";
+	String CHROME_PATH = projectPath + "\\Drivers\\chromedriver.exe";
 	String GECKO_PATH = projectPath + "\\Drivers\\geckodriver.exe";
-	String EDGE_PATH = "..\\EducacionIT\\Drivers\\msedgedriver.exe";
+	String EDGE_PATH = projectPath + "\\Drivers\\msedgedriver.exe";
 	
 	String startTime = "Hora de inicio: ";
 	String endTime = "Hora de fin: ";
