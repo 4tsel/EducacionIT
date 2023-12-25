@@ -3,11 +3,6 @@ package tests;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -24,9 +19,6 @@ public class Laboratorio6_E1 {
 
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
-	String CHROME_PATH = projectPath + "\\Drivers\\chromedriver.exe";
-	String GECKO_PATH = projectPath + "\\Drivers\\geckodriver.exe";
-	String EDGE_PATH = projectPath + "\\Drivers\\msedgedriver.exe";
 	
 	String startTime = "Hora de inicio: ";
 	String endTime = "Hora de fin: ";
@@ -43,26 +35,7 @@ public class Laboratorio6_E1 {
 	@Parameters({"browser", "URL"})
 	public void setUpBrowser(String browser, String URL) {
 
-		if (browser.equalsIgnoreCase("chrome")) {
-
-			System.setProperty("webdriver.chrome.driver", CHROME_PATH);
-
-			ChromeOptions chromeOptions = new ChromeOptions();
-			chromeOptions.addArguments("--remote-allow-origins=*", "headless");
-
-			driver = new ChromeDriver(chromeOptions);
-		} else if (browser.equalsIgnoreCase("firefox")) {
-
-			System.setProperty("webdriver.gecko.driver", GECKO_PATH);
-
-			driver = new FirefoxDriver();
-		} else if (browser.equalsIgnoreCase("edge")) {
-			
-			System.setProperty("webdriver.edge.driver", EDGE_PATH);
-			
-			EdgeOptions edgeOptions = new EdgeOptions();
-			driver = new EdgeDriver(edgeOptions);
-		}
+		driver = Utils.setUpBrowser(driver, browser);
 
 		driver.get(URL);
 		driver.manage().deleteAllCookies();
@@ -90,15 +63,13 @@ public class Laboratorio6_E1 {
 	@AfterMethod(description = "Capturar Evidencia y Volver al Home")
 	public void cleanUpTest() throws IOException, InterruptedException {
 
-		Thread.sleep(1500);
-
-		Utils.takeScreenshot(driver);
+		Utils.getEvidence(driver);
 	}
 
 	@AfterTest(description = "Cerrar Navegador")
 	public void closeBrowser() {
 
-		driver.close();
+		Utils.cleanUpDriver(driver);
 	}
 
 	@AfterSuite(description = "Fin Suite de Pruebas")
