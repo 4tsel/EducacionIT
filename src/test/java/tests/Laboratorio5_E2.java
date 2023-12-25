@@ -3,9 +3,6 @@ package tests;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -21,12 +18,11 @@ import utils.Utils;
 public class Laboratorio5_E2 {
 
 	WebDriver driver;
-	String URL = "https://demo.guru99.com/test/upload/";
-	String CHROME_PATH = "..\\EducacionIT\\Drivers\\chromedriver.exe";
-	String GECKO_PATH = "..\\EducacionIT\\Drivers\\geckodriver.exe";
-	
+
+	String projectPath = System.getProperty("user.dir");
+
 	String FILE_PATH = "F:/Eclipse/eclipse-workspace/EducacionIT/Data/notepad.txt";
-	
+
 	String startTime = "Hora de inicio: ";
 	String endTime = "Hora de fin: ";
 
@@ -34,28 +30,15 @@ public class Laboratorio5_E2 {
 	public void cleanUpScenario() {
 
 		startTime += Utils.getTimestamp("dd/MM/yyyy - HH:mm:ss");
-		
+
 		Utils.cleanUpScenario();
 	}
 
 	@BeforeClass(description = "Borrar Cookies, Ingresar y Maximizar")
-	@Parameters("browser")
-	public void setUpBrowser(String browser) {
+	@Parameters({ "browser", "URL" })
+	public void setUpBrowser(String browser, String URL) {
 
-		if (browser.equalsIgnoreCase("chrome")) {
-
-			System.setProperty("webdriver.chrome.driver", CHROME_PATH);
-
-			ChromeOptions chromeOptions = new ChromeOptions();
-			chromeOptions.addArguments("--remote-allow-origins=*");
-
-			driver = new ChromeDriver(chromeOptions);
-		} else if (browser.equalsIgnoreCase("firefox")) {
-
-			System.setProperty("webdriver.gecko.driver", GECKO_PATH);
-
-			driver = new FirefoxDriver();
-		}
+		driver = Utils.setUpBrowser(driver, browser);
 
 		driver.get(URL);
 		driver.manage().deleteAllCookies();
@@ -71,30 +54,28 @@ public class Laboratorio5_E2 {
 		objUploadPage.fillFilePath(FILE_PATH);
 
 		objUploadPage.acceptTerms();
-		
+
 		objUploadPage.clickSubmitFile();
 
 		Thread.sleep(2500);
-		
+
 		result = objUploadPage.getResult();
-		
+
 		System.out.println(result);
-		
+
 		Assert.assertEquals(result, "1 file\nhas been successfully uploaded.");
 	}
 
-	@AfterMethod(description = "Capturar Evidencia y Volver al Home")
+	@AfterMethod(description = "Capturar Evidencia")
 	public void cleanUpTest() throws IOException, InterruptedException {
 
-		Thread.sleep(1500);
-
-		Utils.takeScreenshot(driver);
+		Utils.getEvidence(driver);
 	}
 
 	@AfterTest(description = "Cerrar Navegador")
 	public void closeBrowser() {
 
-		driver.close();
+		Utils.cleanUpDriver(driver);
 	}
 
 	@AfterSuite(description = "Fin Suite de Pruebas")
@@ -102,8 +83,8 @@ public class Laboratorio5_E2 {
 
 		endTime += Utils.getTimestamp("dd/MM/yyyy - HH:mm:ss");
 		System.out.println("Fin suite de pruebas");
-		
+
 		System.out.println(startTime + "\n" + endTime);
-		
+
 	}
 }

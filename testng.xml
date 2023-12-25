@@ -9,7 +9,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test> <!-- Test -->
+	</test>
 	<test name="Alert Manipulation Test - FIREFOX">
 		<parameter name="browser" value="Firefox" />
 		<parameter name="URL" value="https://demoqa.com/alerts" />
@@ -23,7 +23,8 @@
 	</test>
 	<test name="Table Manipulation Test - CHROME">
 		<parameter name="browser" value="Chrome" />
-		<parameter name="URL" value="https://demo.guru99.com/test/table.html" />
+		<parameter name="URL"
+			value="https://demo.guru99.com/test/table.html" />
 		<classes>
 			<class name="tests.Laboratorio5_E3">
 				<methods>
@@ -34,7 +35,8 @@
 	</test>
 	<test name="Use Search Bar Test - CHROME">
 		<parameter name="browser" value="Chrome" />
-		<parameter name="URL" value="http://www.automationpractice.pl/index.php" />
+		<parameter name="URL"
+			value="http://www.automationpractice.pl/index.php" />
 		<classes>
 			<class name="tests.Laboratorio6_E1">
 				<methods>
@@ -43,4 +45,16 @@
 			</class>
 		</classes>
 	</test>
-</suite> <!-- Suite -->
+	<test name="File Upload Test - CHROME">
+		<parameter name="browser" value="Chrome" />
+		<parameter name="URL"
+			value="https://demo.guru99.com/test/upload/" />
+		<classes>
+			<class name="tests.Laboratorio5_E2">
+				<methods>
+					<include name="testFileUpload" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
