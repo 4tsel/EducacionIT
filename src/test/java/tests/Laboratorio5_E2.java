@@ -19,8 +19,6 @@ public class Laboratorio5_E2 {
 
 	WebDriver driver;
 
-	String projectPath = System.getProperty("user.dir");
-
 	String FILE_PATH = "F:/Eclipse/eclipse-workspace/EducacionIT/Data/notepad.txt";
 
 	String startTime = "Hora de inicio: ";
