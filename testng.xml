@@ -9,7 +9,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test> <!-- Test -->
+	</test>
 	<test name="Alert Manipulation Test - FIREFOX">
 		<parameter name="browser" value="Firefox" />
 		<parameter name="URL" value="https://demoqa.com/alerts" />
@@ -21,4 +21,64 @@
 			</class>
 		</classes>
 	</test>
-</suite> <!-- Suite -->
+	<test name="Table Manipulation Test - CHROME">
+		<parameter name="browser" value="Chrome" />
+		<parameter name="URL"
+			value="https://demo.guru99.com/test/table.html" />
+		<classes>
+			<class name="tests.Laboratorio5_E3">
+				<methods>
+					<include name="testTableManipulation" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Use Search Bar Test - CHROME">
+		<parameter name="browser" value="Chrome" />
+		<parameter name="URL"
+			value="http://www.automationpractice.pl/index.php" />
+		<classes>
+			<class name="tests.Laboratorio6_E1">
+				<methods>
+					<include name="testUseSearchBar" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="File Upload Test - CHROME">
+		<parameter name="browser" value="Chrome" />
+		<parameter name="URL"
+			value="https://demo.guru99.com/test/upload/" />
+		<classes>
+			<class name="tests.Laboratorio5_E2">
+				<methods>
+					<include name="testFileUpload" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Login with Valid Data - EDGE">
+		<parameter name="browser" value="Edge" />
+		<parameter name="URL"
+			value="http://www.automationpractice.pl/index.php" />
+		<classes>
+			<class name="tests.Laboratorio5_E1">
+				<methods>
+					<include name="testValidLogin" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Login with Invalid Data - FIREFOX">
+		<parameter name="browser" value="Firefox" />
+		<parameter name="URL"
+			value="http://www.automationpractice.pl/index.php" />
+		<classes>
+			<class name="tests.Laboratorio5_E1">
+				<methods>
+					<include name="testInvalidLogin" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
