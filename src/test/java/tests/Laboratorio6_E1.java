@@ -18,7 +18,6 @@ import utils.Utils;
 public class Laboratorio6_E1 {
 
 	WebDriver driver;
-	String projectPath = System.getProperty("user.dir");
 	
 	String startTime = "Hora de inicio: ";
 	String endTime = "Hora de fin: ";

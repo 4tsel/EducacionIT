@@ -3,9 +3,6 @@ package tests;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -26,9 +23,6 @@ import utils.Utils;
 public class Laboratorio5_E1 {
 
 	WebDriver driver;
-	String URL = "http://www.automationpractice.pl/index.php";
-	String CHROME_PATH = "..\\EducacionIT\\Drivers\\chromedriver.exe";
-	String GECKO_PATH = "..\\EducacionIT\\Drivers\\geckodriver.exe";
 	
 	String startTime = "Hora de inicio: ";
 	String endTime = "Hora de fin: ";
@@ -42,23 +36,10 @@ public class Laboratorio5_E1 {
 	}
 
 	@BeforeClass(description = "Borrar Cookies, Ingresar y Maximizar")
-	@Parameters("browser")
-	public void setUpBrowser(String browser) {
+	@Parameters({"browser","URL"})
+	public void setUpBrowser(String browser, String URL) {
 
-		if (browser.equalsIgnoreCase("chrome")) {
-
-			System.setProperty("webdriver.chrome.driver", CHROME_PATH);
-
-			ChromeOptions chromeOptions = new ChromeOptions();
-			chromeOptions.addArguments("--remote-allow-origins=*");
-
-			driver = new ChromeDriver(chromeOptions);
-		} else if (browser.equalsIgnoreCase("firefox")) {
-
-			System.setProperty("webdriver.gecko.driver", GECKO_PATH);
-
-			driver = new FirefoxDriver();
-		}
+		driver = Utils.setUpBrowser(driver, browser);
 
 		driver.get(URL);
 		driver.manage().deleteAllCookies();
@@ -129,22 +110,22 @@ public class Laboratorio5_E1 {
 
 		BasePage objBasePage = new BasePage(driver);
 
-		Thread.sleep(1500);
+		Thread.sleep(1000);
 
-		Utils.takeScreenshot(driver);
+		Utils.getEvidence(driver);
 
 		if (objBasePage.isSignOutVisible()) {
 
 			objBasePage.clickSignOut();
 		}
 
-		driver.get(URL);
+		objBasePage.clickHome();
 	}
 
 	@AfterTest(description = "Cerrar Navegador")
 	public void closeBrowser() {
 
-		driver.close();
+		Utils.cleanUpDriver(driver);
 	}
 
 	@AfterSuite(description = "Fin Suite de Pruebas")

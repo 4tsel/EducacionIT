@@ -57,4 +57,28 @@
 			</class>
 		</classes>
 	</test>
+	<test name="Login with Valid Data - EDGE">
+		<parameter name="browser" value="Edge" />
+		<parameter name="URL"
+			value="http://www.automationpractice.pl/index.php" />
+		<classes>
+			<class name="tests.Laboratorio5_E1">
+				<methods>
+					<include name="testValidLogin" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Login with Invalid Data - FIREFOX">
+		<parameter name="browser" value="Firefox" />
+		<parameter name="URL"
+			value="http://www.automationpractice.pl/index.php" />
+		<classes>
+			<class name="tests.Laboratorio5_E1">
+				<methods>
+					<include name="testInvalidLogin" />
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>

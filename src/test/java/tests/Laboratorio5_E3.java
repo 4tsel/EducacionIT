@@ -20,8 +20,6 @@ public class Laboratorio5_E3 {
 
 	WebDriver driver;
 
-	String projectPath = System.getProperty("user.dir");
-
 	String startTime = "Hora de inicio: ";
 	String endTime = "Hora de fin: ";
 
@@ -31,8 +29,6 @@ public class Laboratorio5_E3 {
 		startTime += Utils.getTimestamp("dd/MM/yyyy - HH:mm:ss");
 
 		Utils.cleanUpScenario();
-
-		System.out.println("Project Path: " + projectPath);
 	}
 
 	@BeforeClass(description = "Borrar Cookies, Ingresar y Maximizar")

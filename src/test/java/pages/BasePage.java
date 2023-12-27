@@ -20,6 +20,9 @@ public class BasePage {
 	
 	@FindBy(xpath="//input[@id='search_query_top']")
 	WebElement txt_Search;
+	
+	@FindBy(xpath="//a[@class='home']")
+	WebElement btn_Home;
 
 	public BasePage(WebDriver driver) {
 
@@ -43,6 +46,11 @@ public class BasePage {
 	public void clickSignOut() {
 
 		btn_SignOut.click();
+	}
+	
+	public void clickHome() {
+		
+		btn_Home.click();
 	}
 	
 	public boolean isSignOutVisible() {
