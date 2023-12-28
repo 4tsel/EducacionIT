@@ -11,6 +11,8 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utils.Utils;
+
 public class AlertsPage {
 
 	WebDriver driver;
@@ -47,6 +49,9 @@ public class AlertsPage {
 	
 	public String getPromptResult() {
 		
+		Utils.highlightElement(driver, txt_PromptResult);
+		
 		return txt_PromptResult.getText();
 	}
+
 }
