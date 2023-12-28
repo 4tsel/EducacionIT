@@ -16,28 +16,43 @@
 	<!-- </test> -->
 	<!-- *****FIN EJEMPLO***** -->
 
-	<test name="Login with Valid Data - EDGE">
-		<parameter name="browser" value="Edge" />
-		<parameter name="URL"
-			value="http://www.automationpractice.pl/index.php" />
-		<classes>
-			<class name="tests.Laboratorio5_E1">
-				<methods>
-					<include name="testValidLogin" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Login with Invalid Data - FIREFOX">
+<!-- 	<test name="Login with Valid Data - EDGE"> -->
+<!-- 		<parameter name="browser" value="Edge" /> -->
+<!-- 		<parameter name="URL" -->
+<!-- 			value="http://www.automationpractice.pl/index.php" /> -->
+<!-- 		<classes> -->
+<!-- 			<class name="tests.Laboratorio5_E1"> -->
+<!-- 				<methods> -->
+<!-- 					<include name="testValidLogin" /> -->
+<!-- 				</methods> -->
+<!-- 			</class> -->
+<!-- 		</classes> -->
+<!-- 	</test> -->
+<!-- 	<test name="Login with Invalid Data - FIREFOX"> -->
+<!-- 		<parameter name="browser" value="Firefox" /> -->
+<!-- 		<parameter name="URL" -->
+<!-- 			value="http://www.automationpractice.pl/index.php" /> -->
+<!-- 		<classes> -->
+<!-- 			<class name="tests.Laboratorio5_E1"> -->
+<!-- 				<methods> -->
+<!-- 					<include name="testInvalidLogin" /> -->
+<!-- 				</methods> -->
+<!-- 			</class> -->
+<!-- 		</classes> -->
+<!-- 	</test> -->
+
+	<test name="Alert Manipulation Test - FIREFOX">
 		<parameter name="browser" value="Firefox" />
-		<parameter name="URL"
-			value="http://www.automationpractice.pl/index.php" />
+		<parameter name="URL" value="https://demoqa.com/alerts" />
 		<classes>
-			<class name="tests.Laboratorio5_E1">
+			<class name="tests.Laboratorio5_E3">
 				<methods>
-					<include name="testInvalidLogin" />
+					<include name="testAlertManipulation" />
 				</methods>
 			</class>
 		</classes>
 	</test>
 </suite>
+
+<!-- mvn clean test -Dsurefire.suiteXmlFiles=suites/Local.xml -->
+

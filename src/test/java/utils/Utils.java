@@ -6,9 +6,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -115,12 +117,12 @@ public class Utils {
 	}
 
 	public static void getEvidence(WebDriver driver) throws InterruptedException, IOException {
-
+		
 		Thread.sleep(500);
 
 		takeScreenshot(driver);
 	}
-
+	
 	public static void takeScreenshot(WebDriver driver) throws IOException {
 
 		File screen = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
@@ -134,6 +136,13 @@ public class Utils {
 		String timestamp = sdf.format(new Date());
 
 		return timestamp;
+	}
+	
+	public static void highlightElement(WebDriver driver, WebElement element) {
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		
+		js.executeScript("arguments[0].style.border='3px solid red'", element);
 	}
 
 }

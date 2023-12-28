@@ -22,7 +22,6 @@ import org.testng.annotations.Test;
 import pages.BasePage;
 import pages.HomePage;
 import pages.LoginPage;
-
 import utils.Utils;
 
 public class CrossBrowserTest {

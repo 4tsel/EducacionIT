@@ -5,6 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+
+import utils.Utils;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 
@@ -40,6 +43,8 @@ public class BasePage {
 	
 	public String getPageTitle() {
 
+		Utils.highlightElement(driver, txt_Title);
+		
 		return txt_Title.getText();
 	}
 
